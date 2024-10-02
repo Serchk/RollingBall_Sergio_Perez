@@ -31,10 +31,12 @@ public class Plataforma : MonoBehaviour
         if (cambiarDireccion == true)
         {
             transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
+            //transform.eulerAngles = new Vector3(0f, -270f, 0f);            
         }
         else if(cambiarDireccion == false)
         {
             transform.Translate(-direccion.normalized * velocidad * Time.deltaTime);
+            //transform.eulerAngles = new Vector3(0f, 90f, 0f);
         }
 
         if (timer >= timerLimite && cambiarDireccion == true)
