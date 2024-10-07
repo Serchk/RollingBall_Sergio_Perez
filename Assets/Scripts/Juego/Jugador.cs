@@ -5,33 +5,28 @@ using UnityEngine.UIElements;
 
 public class Jugador : MonoBehaviour
 {
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    transform.Translate(Vector3.back * 1 * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    transform.Translate(Vector3.left * 1 * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    transform.Translate(Vector3.right * 1 * Time.deltaTime);
-        //}
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
+        
+        //rb.AddForce(direccionF * fuerza, ForceMode.TipoF);
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(new Vector3(0, 1, 0) * 5, ForceMode.Impulse);
+        }
+            rb.AddForce(new Vector3(x, 0, z) * 5, ForceMode.Force);
+       
 
     }
 }
