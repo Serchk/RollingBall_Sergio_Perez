@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotate : MonoBehaviour
+public class RotatePlatform : MonoBehaviour
 {
     [SerializeField] Vector3 direccion;
     [SerializeField] int velocidad;

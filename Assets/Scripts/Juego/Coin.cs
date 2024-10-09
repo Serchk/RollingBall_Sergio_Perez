@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateWorld : MonoBehaviour
+public class Coin : MonoBehaviour
 {
     [SerializeField] Vector3 direccion;
     [SerializeField] int velocidad;
@@ -11,7 +11,7 @@ public class RotateWorld : MonoBehaviour
     [SerializeField] float velocidadAltura;
     [SerializeField] float timerLimite;
     float timer = 0f;
-    bool cambiarDireccion = true;
+    //bool cambiarDireccion = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,9 +46,9 @@ public class RotateWorld : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+                Destroy(gameObject);
         }
     }
 }
