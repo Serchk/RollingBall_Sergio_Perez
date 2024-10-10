@@ -12,7 +12,8 @@ public class Jugador : MonoBehaviour
     [SerializeField] float fuerzaVelocidad;
     float x, z;
     [SerializeField] int monedas;
-    [SerializeField] int vidas;
+    [SerializeField] int vidasIniciales;
+    int vidas;
     Vector3 posicionInicial;
     [SerializeField] GameObject canvasHUD;
     [SerializeField] TMP_Text textMonedas, textVidas;
@@ -22,22 +23,28 @@ public class Jugador : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         posicionInicial = transform.position;
         canvasHUD.SetActive(true);
-       
+        vidas = vidasIniciales;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //rb.AddForce(direccionF * fuerza, ForceMode.TipoF);
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
-
-        textMonedas.text = "Monedas: " + monedas;
-        textVidas.text = "Vidas: " + vidas;
-        //rb.AddForce(direccionF * fuerza, ForceMode.TipoF);
-        
+        ReaparecerMuerte();
         
        
 
+    }
+  
+    void ReaparecerMuerte()
+    {
+        if (vidas == 0)
+        {
+            transform.position = posicionInicial;
+            vidas = vidasIniciales;
+        }
     }
     private void FixedUpdate()
     {
@@ -51,12 +58,16 @@ public class Jugador : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coleccionable"))
         {
+            //textMonedas.text = "Monedas: " + monedas;
             monedas++;
+            textMonedas.SetText("Monedas: " + monedas);
         }
         
         if (other.gameObject.CompareTag("Trampa"))
         {
             vidas--;
+            textVidas.SetText("Vidas: " + vidas);
+            //textVidas.text = "Vidas: " + vidas;
         }
         if (other.gameObject.CompareTag("Vacio"))
         {
