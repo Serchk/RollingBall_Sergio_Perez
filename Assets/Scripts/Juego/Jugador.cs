@@ -11,12 +11,17 @@ public class Jugador : MonoBehaviour
     Rigidbody rb;
     [SerializeField] float fuerzaVelocidad;
     float x, z;
+
     [SerializeField] int monedas;
     [SerializeField] int vidasIniciales;
     int vidas;
+
     Vector3 posicionInicial;
+    [SerializeField] float distanciaRaycast;
+
     [SerializeField] GameObject canvasHUD;
     [SerializeField] TMP_Text textMonedas, textVidas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,16 +38,16 @@ public class Jugador : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
         ReaparecerMuerte();
+    
         
-       
-        bool detectaSuelo = DetectarSuelos();
-        if (detectaSuelo == true)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                rb.AddForce(new Vector3(0, 1, 0) * fuerzaVelocidad, ForceMode.Impulse);
-            }
-        }
+         if (Input.GetKeyDown(KeyCode.Space))
+         {
+             if(DetectarSuelos())
+             {
+                 rb.AddForce(new Vector3(0, 1, 0) * fuerzaVelocidad, ForceMode.Impulse);
+             }
+         }
+        
 
     }
   
@@ -81,7 +86,9 @@ public class Jugador : MonoBehaviour
     }
     private bool DetectarSuelos()
     {
-       bool detectaSuelo = Physics.Raycast(transform.position, new Vector3(0, -1, 0), 3);
+       bool detectaSuelo = Physics.Raycast(transform.position, new Vector3(0, -1, 0), distanciaRaycast);
+        Debug.DrawRay(transform.position, new Vector3(0, -1, 0), Color.red, 2f);
        return detectaSuelo;
     }
+
 }
