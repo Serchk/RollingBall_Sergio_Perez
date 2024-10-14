@@ -35,6 +35,14 @@ public class Jugador : MonoBehaviour
         ReaparecerMuerte();
         
        
+        bool detectaSuelo = DetectarSuelos();
+        if (detectaSuelo == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.AddForce(new Vector3(0, 1, 0) * fuerzaVelocidad, ForceMode.Impulse);
+            }
+        }
 
     }
   
@@ -48,10 +56,6 @@ public class Jugador : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(new Vector3(0, 1, 0) * fuerzaVelocidad, ForceMode.Impulse);
-        }
         rb.AddForce(new Vector3(x, 0, z) * fuerzaVelocidad, ForceMode.Force);
     }
     private void OnTriggerEnter(Collider other)
@@ -74,5 +78,10 @@ public class Jugador : MonoBehaviour
             transform.position = posicionInicial;
         }
 
+    }
+    private bool DetectarSuelos()
+    {
+       bool detectaSuelo = Physics.Raycast(transform.position, new Vector3(0, -1, 0), 3);
+       return detectaSuelo;
     }
 }
