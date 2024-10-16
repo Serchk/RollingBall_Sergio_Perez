@@ -11,8 +11,8 @@ public class ParedCubos : MonoBehaviour
     [SerializeField] private Rigidbody[] rbs;
 
 
-    [SerializeField] private ChromaticAberration aberration;
     [SerializeField] private Volume volumen;
+    [SerializeField] private ChromaticAberration aberration;
     private void Update()
     {
         if (iniciarTimer)
