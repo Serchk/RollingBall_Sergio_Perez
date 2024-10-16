@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class ParedCubos : MonoBehaviour
@@ -9,7 +10,9 @@ public class ParedCubos : MonoBehaviour
     private float timer = 0;
     [SerializeField] private Rigidbody[] rbs;
 
-    //[SerializeField] private ChromaticAberration aberration =false;
+
+    [SerializeField] private ChromaticAberration aberration;
+    [SerializeField] private Volume volumen;
     private void Update()
     {
         if (iniciarTimer)
@@ -32,6 +35,7 @@ public class ParedCubos : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            
             //aberration;
             Time.timeScale = 0.2f;
             iniciarTimer = true;
