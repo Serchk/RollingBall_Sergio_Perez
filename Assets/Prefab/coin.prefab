@@ -53,6 +53,8 @@ MonoBehaviour:
   direccionAltura: {x: 0, y: 1, z: 0}
   velocidadAltura: 0.5
   timerLimite: 0.75
+  sonidoCoin: {fileID: 8300000, guid: 09f08fdd121de204fb134691e32f4ae3, type: 3}
+  miManager: {fileID: 0}
 --- !u!33 &7036179390833168843
 MeshFilter:
   m_ObjectHideFlags: 0

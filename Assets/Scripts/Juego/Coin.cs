@@ -11,6 +11,9 @@ public class Coin : MonoBehaviour
     [SerializeField] float velocidadAltura;
     [SerializeField] float timerLimite;
     float timer = 0f;
+
+    [SerializeField] private AudioClip sonidoCoin;
+    [SerializeField] private AudioManager miManager;
     //bool cambiarDireccion = true;
     // Start is called before the first frame update
     void Start()
@@ -48,7 +51,8 @@ public class Coin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-                Destroy(gameObject);
+            miManager.ReproducirSonido(sonidoCoin);
+            Destroy(gameObject);
         }
     }
 }
