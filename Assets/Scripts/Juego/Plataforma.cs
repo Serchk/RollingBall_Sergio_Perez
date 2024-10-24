@@ -19,36 +19,27 @@ public class Plataforma : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        //if (timer >= timerLimite)
-        //{
-        //    transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
-        //}
-        //if (timer <= 0)
-        //{
-        //    transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
-        //    timer
-        //}
-        if (cambiarDireccion == true)
-        {
-            transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
-            //transform.eulerAngles = new Vector3(0f, 90f, 0f);
-        }
-        else if(cambiarDireccion == false)
-        {
-            transform.Translate(-direccion.normalized * velocidad * Time.deltaTime);
-            //transform.eulerAngles = new Vector3(0f, 270f, 0f);
-        }
+        
+        transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
+        transform.eulerAngles= new Vector3(0, cambiarDireccion ? -90 : 90,0);
 
-        if (timer >= timerLimite && cambiarDireccion == true)
+        if (timer >= timerLimite)
         {
-            cambiarDireccion = false;
-            timer  = 0f;
-        }
-        else if (timer >= timerLimite && cambiarDireccion == false)
-        {
-            cambiarDireccion = true;
+            cambiarDireccion = !cambiarDireccion;
             timer = 0f;
         }
+
+        //if (cambiarDireccion == true)
+        //{
+        //    transform.Translate(direccion.normalized * velocidad * Time.deltaTime);
+        //    //transform.eulerAngles = new Vector3(0f, 90f, 0f);
+        //}
+        //else if(cambiarDireccion == false)
+        //{
+        //    transform.Translate(-direccion.normalized * velocidad * Time.deltaTime);
+        //    //transform.eulerAngles = new Vector3(0f, 270f, 0f);
+        //}
+
 
     }
 }

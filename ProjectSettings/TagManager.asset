@@ -8,6 +8,8 @@ TagManager:
   - Trampa
   - Vacio
   - CamCeni
+  - Play
+  - Quit
   layers:
   - Default
   - TransparentFX
