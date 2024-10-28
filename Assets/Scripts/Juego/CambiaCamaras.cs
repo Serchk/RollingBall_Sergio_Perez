@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CambiaCamaras : MonoBehaviour
 {
-    [SerializeField] GameObject virtualCamera, camaraCenital;
+    [SerializeField] GameObject virtualCamera, otherCamera;
 
     
     private void OnTriggerEnter(Collider other)
@@ -14,12 +14,12 @@ public class CambiaCamaras : MonoBehaviour
             if (virtualCamera.activeSelf)
             {
                 virtualCamera.SetActive(false);
-                camaraCenital.SetActive(true);
+                otherCamera.SetActive(true);
             }
-            else
+            else if (otherCamera.activeSelf)
             {
-                virtualCamera.SetActive(false);
-                camaraCenital.SetActive(true);
+                virtualCamera.SetActive(true);
+                otherCamera.SetActive(false);
             }
         }
     }
