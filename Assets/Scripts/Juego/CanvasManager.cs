@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
+    void Update()
+    {
+        //if (Input.GetKeyDown(Escape))
+        //{
+        //    //canva
+        //}
+    }
     public void Play()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); Para cuando tienes varios niveles
