@@ -246,6 +246,7 @@ MonoBehaviour:
   vidasIniciales: 3
   distanciaRaycast: 1.1
   canvasHUD: {fileID: 322093678}
+  canvasPausa: {fileID: 472455752}
   textMonedas: {fileID: 46052330}
   textVidas: {fileID: 1616499298}
 --- !u!54 &24663827
@@ -272,7 +273,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &46052328
@@ -992,7 +993,7 @@ GameObject:
   - component: {fileID: 430270568}
   - component: {fileID: 430270567}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: TextPortal1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1979,6 +1980,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalRojo: {fileID: 1856325798}
+  textoPortal: {fileID: 1409673781}
+  contadorr: {fileID: 1889508769}
 --- !u!1 &869505134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,7 +2127,7 @@ GameObject:
   - component: {fileID: 886848128}
   - component: {fileID: 886848127}
   m_Layer: 0
-  m_Name: Text (TMP) (3)
+  m_Name: TextPorta3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4280,7 +4283,7 @@ GameObject:
   - component: {fileID: 1409673782}
   - component: {fileID: 1409673781}
   m_Layer: 0
-  m_Name: Text (TMP) (2)
+  m_Name: TextPortal2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6631,7 +6634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: CONTINUE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10735,6 +10738,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalRojo: {fileID: 519449354}
+  textoPortal: {fileID: 886848127}
+  contadorr: {fileID: 867436056}
 --- !u!1 &1911458734
 GameObject:
   m_ObjectHideFlags: 0
@@ -10936,7 +10941,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 472455756}
         m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

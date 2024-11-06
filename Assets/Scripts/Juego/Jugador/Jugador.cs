@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TMPro.EditorUtilities;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -19,7 +20,7 @@ public class Jugador : MonoBehaviour
     Vector3 posicionInicial;
     [SerializeField] float distanciaRaycast;
 
-    [SerializeField] GameObject canvasHUD;
+    [SerializeField] GameObject canvasHUD, canvasPausa;
     [SerializeField] TMP_Text textMonedas, textVidas;
 
     // Start is called before the first frame update
@@ -47,10 +48,27 @@ public class Jugador : MonoBehaviour
                  rb.AddForce(new Vector3(0, 1, 0) * fuerzaVelocidad, ForceMode.Impulse);
              }
          }
-        
+        CanvasPausa();
 
     }
-  
+    private void CanvasPausa()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+            canvasPausa.SetActive(!canvasPausa.activeSelf);
+            if (canvasPausa.activeSelf )
+            {
+                Time.timeScale = 0.2f;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
+
+    }
+
     void ReaparecerMuerte()
     {
         if (vidas == 0)
@@ -90,5 +108,6 @@ public class Jugador : MonoBehaviour
         Debug.DrawRay(transform.position, new Vector3(0, -1, 0), Color.red, 2f);
        return detectaSuelo;
     }
+   
 
 }

@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
+    //Canvas canvasPausa;
+    void Start()
+    {
+        //canvasPausa = GetComponent<Canvas>();
+    }
     void Update()
     {
         //if (Input.GetKeyDown(Escape))
@@ -17,6 +22,11 @@ public class CanvasManager : MonoBehaviour
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); Para cuando tienes varios niveles
         SceneManager.LoadScene(1);
 
+    }
+    public void Continue() 
+    {
+        gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
     public void Exit()
     {
