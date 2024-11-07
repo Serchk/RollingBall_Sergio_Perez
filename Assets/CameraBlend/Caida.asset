@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Caida
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: Virtual Camera (1)
-    m_To: Virtual Camera
+  - m_From: Virtual Camera
+    m_To: Virtual Camera (1)
     m_Blend:
       m_Style: 7
       m_Time: 1
@@ -23,18 +23,18 @@ MonoBehaviour:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0.0968332
-          outSlope: 0.0968332
+          value: 0.04901123
+          inSlope: 0.1817695
+          outSlope: 0.1817695
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.3259524
+          outWeight: 0.28345
         - serializedVersion: 3
-          time: 0.82319045
-          value: 0.44478792
-          inSlope: 1.8402461
-          outSlope: 1.8402461
+          time: 0.7177501
+          value: 0.54092455
+          inSlope: 1.15592
+          outSlope: 1.15592
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -42,11 +42,11 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 3.14017
-          outSlope: 3.14017
-          tangentMode: 34
+          inSlope: 0.48471865
+          outSlope: 0.48471865
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.7681759
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2

@@ -10,6 +10,11 @@ TagManager:
   - CamCeni
   - Play
   - Quit
+  - Indicaciones
+  - camDestroy
+  - Destruible
+  - Patada
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
