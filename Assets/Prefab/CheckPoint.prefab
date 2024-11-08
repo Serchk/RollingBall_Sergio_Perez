@@ -222,7 +222,6 @@ GameObject:
   - component: {fileID: 3425001664178992351}
   - component: {fileID: 3670785769212918634}
   - component: {fileID: 3746918872711877680}
-  - component: {fileID: 7096221295728563557}
   m_Layer: 0
   m_Name: UnCheck
   m_TagString: CheckPoint
@@ -316,20 +315,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7096221295728563557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430925989856009367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67208cfcd0029794c83299bfad951d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chek: {fileID: 0}
-  unChek: {fileID: 0}
 --- !u!1 &2172276757842598417
 GameObject:
   m_ObjectHideFlags: 0

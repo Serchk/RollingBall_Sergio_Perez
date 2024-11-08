@@ -323,12 +323,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerzaVelocidad: 10
+  fuerzaSalto: 0
   monedas: 0
   vidasIniciales: 3
   contadorIndcaciones: 0
+  direccionPatada: {x: 0, y: 0, z: 0}
+  checkPoint: 0
   distanciaRaycast: 0
+  virtualCamera: {fileID: 0}
+  otherCamera: {fileID: 0}
   canvasHUD: {fileID: 1535079651}
   canvasPausa: {fileID: 0}
+  canvasFin: {fileID: 0}
   textMonedas: {fileID: 1909267653}
   textVidas: {fileID: 521958080}
 --- !u!54 &119905005
@@ -1146,12 +1152,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerzaVelocidad: 18
+  fuerzaSalto: 0
   monedas: 0
   vidasIniciales: 3
   contadorIndcaciones: 0
+  direccionPatada: {x: 0, y: 0, z: 0}
+  checkPoint: 0
   distanciaRaycast: 2.64
+  virtualCamera: {fileID: 0}
+  otherCamera: {fileID: 0}
   canvasHUD: {fileID: 1535079651}
   canvasPausa: {fileID: 0}
+  canvasFin: {fileID: 0}
   textMonedas: {fileID: 1909267653}
   textVidas: {fileID: 521958080}
 --- !u!4 &439618933 stripped

@@ -4214,7 +4214,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1841500718}
-  - component: {fileID: 1841500720}
   - component: {fileID: 1841500719}
   - component: {fileID: 1841500716}
   - component: {fileID: 1841500715}
@@ -4354,20 +4353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuerzaVelocidad: 5
   distanciaRaycast: 1.1
---- !u!114 &1841500720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841500712}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852c74ecf9f1c46418465dd2bb3b50e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidadMovimiento: 5
-  smoothTime: 0.3
 --- !u!1 &1897616156
 GameObject:
   m_ObjectHideFlags: 0

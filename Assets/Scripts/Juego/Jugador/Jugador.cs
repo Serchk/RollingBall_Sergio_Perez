@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
@@ -18,23 +18,29 @@ public class Jugador : MonoBehaviour
     int vidas;
     [SerializeField] int contadorIndcaciones = 0;
 
-    [SerializeField] Vector3 direccionPatada;
+    [SerializeField] Vector3 direccionPatadaX, direccionPatadaZ;
     Vector3 posicionInicial;
     Vector3 posicionCheckPoint;
     [SerializeField] bool checkPoint = false;
     [SerializeField] float distanciaRaycast;
 
-    [SerializeField] GameObject canvasHUD, canvasPausa;
+    [SerializeField] GameObject virtualCamera, otherCamera;    
+
+    [SerializeField] GameObject canvasHUD, canvasPausa, canvasFin;
     [SerializeField] TMP_Text textMonedas, textVidas;
+
+    CambiaCamaras camara;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        camara = GetComponent<CambiaCamaras>();
         posicionInicial = transform.position;
         canvasHUD.SetActive(true);
         vidas = vidasIniciales;
-       
+        Time.timeScale = 1;
+
     }
 
     // Update is called once per frame
@@ -43,7 +49,7 @@ public class Jugador : MonoBehaviour
         //rb.AddForce(direccionF * fuerza, ForceMode.TipoF);
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
-        ReaparecerMuerte();
+        //ReaparecerMuerte();
     
         
          if (Input.GetKeyDown(KeyCode.Space))
@@ -55,7 +61,19 @@ public class Jugador : MonoBehaviour
          }
         CanvasPausa();
         canvasUI();
+        GameOver();
 
+    }
+    private void GameOver()
+    {
+        if(vidas <= 0)
+        {
+            Destroy(gameObject);
+            canvasFin.SetActive(true);
+            virtualCamera.SetActive(false);
+            otherCamera.SetActive(true);
+
+        }
     }
     private void canvasUI()
     {
@@ -67,7 +85,7 @@ public class Jugador : MonoBehaviour
         {
             
             canvasPausa.SetActive(!canvasPausa.activeSelf);
-            if (canvasPausa.activeSelf )
+            if (canvasPausa.activeSelf)
             {
                 Time.timeScale = 0.2f;
             }
@@ -128,8 +146,13 @@ public class Jugador : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Patada"))
         {
-            rb.AddForce(direccionPatada, ForceMode.Impulse);
+            rb.AddForce(direccionPatadaX, ForceMode.Impulse);
         } 
+        if (other.gameObject.CompareTag("PatadaZ"))
+        {
+            rb.AddForce(direccionPatadaZ, ForceMode.Impulse);
+        } 
+
         if (other.gameObject.CompareTag("CheckPoint"))
         {
             if (checkPoint == false)

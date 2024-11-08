@@ -17,6 +17,14 @@ public class CanvasManager : MonoBehaviour
         //    //canva
         //}
     }
+    public void ReiniciarNivel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Play()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); Para cuando tienes varios niveles

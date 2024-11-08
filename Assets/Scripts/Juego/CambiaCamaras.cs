@@ -11,13 +11,13 @@ public class CambiaCamaras : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (virtualCamera.activeSelf && contador1 == 0)
+            if (virtualCamera.activeSelf)//&& contador1 == 0
             {
                 virtualCamera.SetActive(false);
                 otherCamera.SetActive(true);
                 
             }
-            else if (otherCamera.activeSelf && contador2 == 0)
+            else if (otherCamera.activeSelf)//&& contador2 == 0
             {
                 
                 virtualCamera.SetActive(true);

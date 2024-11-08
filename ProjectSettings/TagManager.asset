@@ -15,6 +15,7 @@ TagManager:
   - Destruible
   - Patada
   - CheckPoint
+  - PatadaZ
   layers:
   - Default
   - TransparentFX
