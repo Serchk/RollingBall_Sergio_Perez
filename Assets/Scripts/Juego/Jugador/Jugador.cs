@@ -128,7 +128,7 @@ public class Jugador : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("VacioOut"))
+        if (other.gameObject.CompareTag("Vacio"))
         {           
             vidas--;
             if (!checkPoint)
