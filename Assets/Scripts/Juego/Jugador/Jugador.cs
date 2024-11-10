@@ -76,7 +76,15 @@ public class Jugador : MonoBehaviour
         CanvasPausa();
         canvasUI();
         GameOver();
-
+        if (Input.GetKey(KeyCode.V))
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                MasVidas();
+            }
+            
+        }
+        
     }
     private void GameOver()
     {
@@ -95,7 +103,7 @@ public class Jugador : MonoBehaviour
     }
     private void CanvasPausa()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {            
             canvasPausa.SetActive(!canvasPausa.activeSelf);
             if (canvasPausa.activeSelf)
@@ -235,6 +243,10 @@ public class Jugador : MonoBehaviour
        bool detectaSuelo = Physics.Raycast(transform.position, new Vector3(0, -1, 0), distanciaRaycast);
        Debug.DrawRay(transform.position, new Vector3(0, -1, 0), Color.red, 2f);
        return detectaSuelo;
+    }
+    private void MasVidas()
+    { 
+        vidas++;
     }
    
 
