@@ -16,6 +16,10 @@ TagManager:
   - Patada
   - CheckPoint
   - PatadaZ
+  - Transformable
+  - DragManager
+  - DragVoid
+  - VacioOut
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -13,6 +14,12 @@ public class ParedCubos : MonoBehaviour
 
     [SerializeField] private Volume volumen;
     [SerializeField] private ChromaticAberration aberration;
+    BoxCollider colisionado;
+    void Start()
+    {
+       colisionado = GetComponent<BoxCollider>();
+
+    }
     private void Update()
     {
         if (iniciarTimer)
@@ -34,11 +41,12 @@ public class ParedCubos : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
-            
+        {            
             //aberration;
             Time.timeScale = 0.2f;
             iniciarTimer = true;
+            Destroy(colisionado);
+            
         }
     }
 }

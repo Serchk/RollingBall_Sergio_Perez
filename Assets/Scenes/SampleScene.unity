@@ -322,21 +322,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aeca7e05a78da2469755187dcdb4e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaVelocidad: 10
+  fuerzaVelocidadMov: 0
   fuerzaSalto: 0
-  monedas: 0
   vidasIniciales: 3
-  contadorIndcaciones: 0
-  direccionPatada: {x: 0, y: 0, z: 0}
+  vidasExtra: 0
+  direccionPatadaX: {x: 0, y: 0, z: 0}
+  direccionPatadaZ: {x: 0, y: 0, z: 0}
   checkPoint: 0
   distanciaRaycast: 0
-  virtualCamera: {fileID: 0}
-  otherCamera: {fileID: 0}
   canvasHUD: {fileID: 1535079651}
   canvasPausa: {fileID: 0}
   canvasFin: {fileID: 0}
   textMonedas: {fileID: 1909267653}
   textVidas: {fileID: 521958080}
+  virtualCamera: {fileID: 0}
+  otherCamera: {fileID: 0}
 --- !u!54 &119905005
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1151,21 +1151,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aeca7e05a78da2469755187dcdb4e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaVelocidad: 18
+  fuerzaVelocidadMov: 0
   fuerzaSalto: 0
-  monedas: 0
   vidasIniciales: 3
-  contadorIndcaciones: 0
-  direccionPatada: {x: 0, y: 0, z: 0}
+  vidasExtra: 0
+  direccionPatadaX: {x: 0, y: 0, z: 0}
+  direccionPatadaZ: {x: 0, y: 0, z: 0}
   checkPoint: 0
   distanciaRaycast: 2.64
-  virtualCamera: {fileID: 0}
-  otherCamera: {fileID: 0}
   canvasHUD: {fileID: 1535079651}
   canvasPausa: {fileID: 0}
   canvasFin: {fileID: 0}
   textMonedas: {fileID: 1909267653}
   textVidas: {fileID: 521958080}
+  virtualCamera: {fileID: 0}
+  otherCamera: {fileID: 0}
 --- !u!4 &439618933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 581dc96f8fe48a149b3a15392a530af4,
@@ -1695,7 +1695,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -4421,7 +4422,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:

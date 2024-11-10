@@ -9,31 +9,46 @@ using UnityEngine.UIElements;
 
 public class Jugador : MonoBehaviour
 {
-    Rigidbody rb;
-    [SerializeField] float fuerzaVelocidad, fuerzaSalto;
-    float x, z;
 
-    [SerializeField] int monedas;
+    
+    Rigidbody rb;
+    [SerializeField] float fuerzaVelocidadMov;
+     float fuerzaVelocidad;
+     float fuerzaVelocidadCero = 0;
+    [SerializeField] float fuerzaSalto;
+    float x, z;
     [SerializeField] int vidasIniciales;
     int vidas;
-    [SerializeField] int contadorIndcaciones = 0;
+    [SerializeField] int vidasExtra;
+    int contador = 1;
+    [SerializeField] GameObject transformable1, transformable2;
 
-    [SerializeField] Vector3 direccionPatadaX, direccionPatadaZ;
+    [Header("Impulso")]
+    [SerializeField] Vector3 direccionPatadaX;
+    //[SerializeField] Vector3 direccionPatadaY;
+    [SerializeField] Vector3 direccionPatadaZ;
+
+    [Header("Position")]
     Vector3 posicionInicial;
     Vector3 posicionCheckPoint;
     [SerializeField] bool checkPoint = false;
     [SerializeField] float distanciaRaycast;
 
-    [SerializeField] GameObject virtualCamera, otherCamera;    
-
-    [SerializeField] GameObject canvasHUD, canvasPausa, canvasFin;
+    [Header("Canvas")]
+    [SerializeField] GameObject canvasHUD;
+    [SerializeField] GameObject canvasPausa;
+    [SerializeField] GameObject canvasFin;
     [SerializeField] TMP_Text textMonedas, textVidas;
 
+    [Header("Cámaras")]
+    [SerializeField] GameObject virtualCamera;
+    [SerializeField] GameObject otherCamera;
     CambiaCamaras camara;
 
     // Start is called before the first frame update
     void Start()
     {
+        fuerzaVelocidad  = fuerzaVelocidadMov;
         rb = GetComponent<Rigidbody>();
         camara = GetComponent<CambiaCamaras>();
         posicionInicial = transform.position;
@@ -101,31 +116,62 @@ public class Jugador : MonoBehaviour
     {
         if (vidas == 0)
         {
+            fuerzaVelocidad = fuerzaVelocidadCero;
             transform.position = posicionInicial;
             vidas = vidasIniciales;
+            fuerzaVelocidad = fuerzaVelocidadMov;
         }
     }
     private void FixedUpdate()
     {
         rb.AddForce(new Vector3(x, 0, z) * fuerzaVelocidad, ForceMode.Force);
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("VacioOut"))
+        {           
+            vidas--;
+            if (!checkPoint)
+            {
+                transform.position = posicionInicial;
+                fuerzaVelocidad = fuerzaVelocidadMov;
+            }
+            else if (checkPoint)
+            {
+                transform.position = posicionCheckPoint;
+                fuerzaVelocidad = fuerzaVelocidadMov;
+            }
+            
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Coleccionable"))
         {
             //textMonedas.text = "Monedas: " + monedas;
-            monedas++;
+            vidasExtra++;
             vidas++;
-            textMonedas.SetText("Monedas: " + monedas);
+            textMonedas.SetText("Monedas: " + vidasExtra);
         }
-        
-        if (other.gameObject.CompareTag("Trampa"))
+        if (other.gameObject.CompareTag("DragManager"))
         {
-            vidas--;            
-            //textVidas.text = "Vidas: " + vidas;
-        }
+            if(rb.drag <= 0)
+            {
+                rb.drag = 1;
+            }
+            else if (rb.drag >= 1)
+            {
+                rb.drag = 0;
+            }
+            
+        }    
+        if (other.gameObject.CompareTag("DragVoid"))
+        {
+            rb.drag = 1;
+        }    
         if (other.gameObject.CompareTag("Vacio"))
         {
+            
             vidas--;
             if (!checkPoint)
             {
@@ -155,6 +201,7 @@ public class Jugador : MonoBehaviour
 
         if (other.gameObject.CompareTag("CheckPoint"))
         {
+            
             if (checkPoint == false)
             {
                 checkPoint = true;
@@ -171,6 +218,19 @@ public class Jugador : MonoBehaviour
         if (collision.gameObject.CompareTag("Destruible"))
         {
             Destroy(collision.gameObject, 0.25f);
+        }
+        if (collision.gameObject.CompareTag("Transformable"))
+        {            
+            Destroy(collision.gameObject, 0.25f);
+            if(contador ==1)
+            {
+                transformable1.SetActive(true);
+                contador++;
+            }
+            else if(contador == 2)
+            {
+                transformable2.SetActive(true);
+            }
         }
     }
     private bool DetectarSuelos()
