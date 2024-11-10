@@ -28080,7 +28080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direccion: {x: 0, y: 1, z: 0}
   velocidad: 5
-  timerLimite: 10
+  timerLimite: 15
   rotarX: 0
   rotarY: 0
   rotarZ: 0
