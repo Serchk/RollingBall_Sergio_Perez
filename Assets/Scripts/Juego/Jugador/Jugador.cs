@@ -18,8 +18,7 @@ public class Jugador : MonoBehaviour
     [SerializeField] float fuerzaSalto;
     float x, z;
     [SerializeField] int vidasIniciales;
-    int vidas;
-    [SerializeField] int vidasExtra;
+    int vidas;    
     int contador = 1;
     [SerializeField] GameObject transformable1, transformable2;
 
@@ -38,7 +37,7 @@ public class Jugador : MonoBehaviour
     [SerializeField] GameObject canvasHUD;
     [SerializeField] GameObject canvasPausa;
     [SerializeField] GameObject canvasFin;
-    [SerializeField] TMP_Text textMonedas, textVidas;
+    [SerializeField] TMP_Text textVidas;
 
     [Header("Cámaras")]
     [SerializeField] GameObject virtualCamera;
@@ -48,12 +47,12 @@ public class Jugador : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        vidas = vidasIniciales;
         fuerzaVelocidad  = fuerzaVelocidadMov;
         rb = GetComponent<Rigidbody>();
         camara = GetComponent<CambiaCamaras>();
         posicionInicial = transform.position;
-        canvasHUD.SetActive(true);
-        vidas = vidasIniciales;
+        canvasHUD.SetActive(true);        
         Time.timeScale = 1;
 
     }
@@ -97,8 +96,7 @@ public class Jugador : MonoBehaviour
     private void CanvasPausa()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            
+        {            
             canvasPausa.SetActive(!canvasPausa.activeSelf);
             if (canvasPausa.activeSelf)
             {
@@ -116,10 +114,10 @@ public class Jugador : MonoBehaviour
     {
         if (vidas == 0)
         {
-            fuerzaVelocidad = fuerzaVelocidadCero;
+            //fuerzaVelocidad = fuerzaVelocidadCero;
             transform.position = posicionInicial;
             vidas = vidasIniciales;
-            fuerzaVelocidad = fuerzaVelocidadMov;
+            //fuerzaVelocidad = fuerzaVelocidadMov;
         }
     }
     private void FixedUpdate()
@@ -128,7 +126,7 @@ public class Jugador : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Vacio"))
+        if (other.gameObject.CompareTag("VacioOut"))
         {           
             vidas--;
             if (!checkPoint)
@@ -149,9 +147,9 @@ public class Jugador : MonoBehaviour
         if (other.gameObject.CompareTag("Coleccionable"))
         {
             //textMonedas.text = "Monedas: " + monedas;
-            vidasExtra++;
+            
             vidas++;
-            textMonedas.SetText("Monedas: " + vidasExtra);
+           
         }
         if (other.gameObject.CompareTag("DragManager"))
         {
@@ -171,7 +169,6 @@ public class Jugador : MonoBehaviour
         }    
         if (other.gameObject.CompareTag("Vacio"))
         {
-            
             vidas--;
             if (!checkPoint)
             {

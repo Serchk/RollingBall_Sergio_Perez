@@ -8292,7 +8292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.07058824}
+  m_Color: {r: 0.19999999, g: 0.03584903, b: 0.03584903, a: 0.35686275}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14789,7 +14789,6 @@ MonoBehaviour:
   fuerzaVelocidadMov: 10
   fuerzaSalto: 6
   vidasIniciales: 1
-  vidasExtra: 0
   transformable1: {fileID: 0}
   transformable2: {fileID: 0}
   direccionPatadaX: {x: 0, y: 0, z: 0}
@@ -14799,7 +14798,6 @@ MonoBehaviour:
   canvasHUD: {fileID: 1908108494}
   canvasPausa: {fileID: 114812995}
   canvasFin: {fileID: 166116832}
-  textMonedas: {fileID: 255536938}
   textVidas: {fileID: 1344864379}
   virtualCamera: {fileID: 1435739004}
   otherCamera: {fileID: 1053301766}

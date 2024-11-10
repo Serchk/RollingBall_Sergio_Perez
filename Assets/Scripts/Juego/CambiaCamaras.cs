@@ -5,7 +5,7 @@ using UnityEngine;
 public class CambiaCamaras : MonoBehaviour
 {
     [SerializeField] GameObject virtualCamera, otherCamera;
-    int contador1, contador2;
+    //int contador1, contador2;
     
     private void OnTriggerEnter(Collider other)
     {

@@ -18,7 +18,7 @@ public class PortalMal : MonoBehaviour
             
             Destroy(gameObject);           
            
-            textoPortal.SetText("Tanto esfuerzo para que fuese el camino facil. Que rabia."); 
+            textoPortal.SetText("Tanto esfuerzo para que fuese el camino fácil. Que rabia."); 
         }
 
     }
